@@ -4,6 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Trader Max Arun · Free Telegram</title>
+    
+    <!-- ======================================== -->
+    <!-- 🔥 META PIXEL CODE (Active) -->
+    <!-- ======================================== -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1350523436848906');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=1350523436848906&ev=PageView&noscript=1"/>
+    </noscript>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
@@ -553,7 +574,7 @@
     <div class="glass-ultra">
         <div class="glow-ring"></div>
 
-        <!-- HEADER: Profile Photo Updated -->
+        <!-- HEADER -->
         <div class="header-ultra">
             <div class="avatar-ultra">
                 <img src="https://iili.io/n3Vic22.jpg" alt="Trader Max Arun" loading="lazy" />
@@ -609,7 +630,7 @@
                     <span>Free Trading Signals</span>
                 </div>
             </div>
-            <a href="https://t.me/+wXbDNG0MbgRkZDVl" target="_blank" class="join-ultra" id="joinBtnTop">
+            <a href="#" class="join-ultra" id="joinBtnTop">
                 <i class="fas fa-plus-circle"></i> <span>Join Telegram</span>
             </a>
         </div>
@@ -634,7 +655,7 @@
                     <span>Join Our Community</span>
                 </div>
             </div>
-            <a href="https://t.me/+wXbDNG0MbgRkZDVl" target="_blank" class="join-ultra" id="joinBtnBottom">
+            <a href="#" class="join-ultra" id="joinBtnBottom">
                 <i class="fas fa-plus-circle"></i> <span>Join Telegram</span>
             </a>
         </div>
@@ -652,36 +673,85 @@
         (function() {
             'use strict';
 
-            // ----- DOM ELEMENTS -----
-            const timerDisplay = document.getElementById('timerDisplay');
-            const timerSection = document.getElementById('timerSection');
-            const timerIcon = document.getElementById('timerIcon');
-            const timerLabelText = document.getElementById('timerLabelText');
-            const expiryNote = document.getElementById('expiryNote');
-            const joinBtns = document.querySelectorAll('.join-ultra');
+            // ================================================================
+            // 🔥 CONFIGURATION
+            // ================================================================
+            const CONFIG = {
+                TELEGRAM_LINK: 'https://t.me/+wXbDNG0MbgRkZDVl',
+                PIXEL_ID: '1350523436848906',
+                AUTO_OPEN_AT: 57, // 57 seconds
+            };
 
-            // Stats elements
-            const totalTraders = document.getElementById('totalTraders');
-            const accuracy = document.getElementById('accuracy');
-            const highTrades = document.getElementById('highTrades');
-            const dailyJoining = document.getElementById('dailyJoining');
+            // ================================================================
+            // 📊 PIXEL TRACKING FUNCTIONS
+            // ================================================================
+            function trackEvent(eventName, params = {}) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', eventName, params);
+                    console.log('✅ Pixel Track:', eventName, params);
+                } else {
+                    console.warn('⚠️ Pixel not loaded');
+                }
+            }
 
-            // Telegram link
-            const TELEGRAM_LINK = 'https://t.me/+wXbDNG0MbgRkZDVl';
+            // Track PageView with fbclid
+            (function trackPageView() {
+                const params = new URLSearchParams(window.location.search);
+                const fbclid = params.get('fbclid') || '';
+                if (fbclid) {
+                    sessionStorage.setItem('fbclid', fbclid);
+                    trackEvent('PageView', { fbclid: fbclid });
+                } else {
+                    trackEvent('PageView');
+                }
+            })();
 
-            // ----- STATS ANIMATION -----
-            setTimeout(() => {
-                totalTraders.textContent = '8,400';
-                accuracy.textContent = '98%';
-                highTrades.textContent = '390-500';
-                dailyJoining.textContent = '12K';
-            }, 100);
+            // ================================================================
+            // 🔗 TELEGRAM LINK OPENER WITH PIXEL TRACKING
+            // ================================================================
+            let linkOpened = false;
+            const TELEGRAM_LINK = CONFIG.TELEGRAM_LINK;
 
-            // ----- TIMER (60 sec) -----
+            function openTelegramLink() {
+                // Get fbclid from session
+                const fbclid = sessionStorage.getItem('fbclid') || '';
+
+                // 🔥 Track "Lead" event when link opens
+                trackEvent('Lead', {
+                    content_name: 'Telegram Join',
+                    content_category: 'Channel',
+                    fbclid: fbclid,
+                });
+
+                // Open Telegram link in new tab
+                window.open(TELEGRAM_LINK, '_blank');
+
+                // Update UI
+                if (!linkOpened) {
+                    linkOpened = true;
+                    document.querySelectorAll('.join-ultra').forEach(btn => {
+                        btn.classList.add('joined');
+                        btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Joined ✓</span>';
+                    });
+
+                    const timerDisplay = document.getElementById('timerDisplay');
+                    timerDisplay.classList.add('auto-open');
+                    document.getElementById('timerSection').classList.add('active-timer');
+                    document.getElementById('timerIcon').className = 'fas fa-check-circle';
+                    document.getElementById('timerIcon').style.color = '#4ade80';
+                    document.getElementById('timerLabelText').textContent = 'Link Opened!';
+
+                    const expiryNote = document.getElementById('expiryNote');
+                    expiryNote.innerHTML = '<i class="fas fa-check-circle" style="color:#4ade80;"></i> Link opened!';
+                    expiryNote.classList.add('success');
+                }
+            }
+
+            // ================================================================
+            // ⏱️ TIMER (60 sec)
+            // ================================================================
             let totalSeconds = 60;
             let timerInterval = null;
-            let linkOpened = false;
-            const AUTO_OPEN_AT = 57; // 57 seconds
 
             function formatTime(sec) {
                 const mins = Math.floor(sec / 60);
@@ -689,49 +759,22 @@
                 return `${mins}:${remainingSec.toString().padStart(2, '0')}`;
             }
 
-            // 🔥 OPEN TELEGRAM LINK (Manual + Auto)
-            function openTelegramLink() {
-                window.open(TELEGRAM_LINK, '_blank');
-
-                // Update UI only if not already opened
-                if (!linkOpened) {
-                    linkOpened = true;
-                    joinBtns.forEach(btn => {
-                        btn.classList.add('joined');
-                        btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Joined ✓</span>';
-                    });
-
-                    timerDisplay.classList.add('auto-open');
-                    timerSection.classList.add('active-timer');
-                    timerIcon.className = 'fas fa-check-circle';
-                    timerIcon.style.color = '#4ade80';
-                    timerLabelText.textContent = 'Link Opened!';
-
-                    expiryNote.innerHTML = '<i class="fas fa-check-circle" style="color:#4ade80;"></i> Link opened!';
-                    expiryNote.classList.add('success');
-
-                    if (timerInterval) {
-                        clearInterval(timerInterval);
-                        timerInterval = null;
-                    }
-                }
-            }
-
             function updateTimer() {
                 if (totalSeconds <= 0) {
-                    timerDisplay.textContent = '0:00';
-                    timerDisplay.classList.add('warning');
+                    document.getElementById('timerDisplay').textContent = '0:00';
+                    document.getElementById('timerDisplay').classList.add('warning');
                     return;
                 }
 
-                timerDisplay.textContent = formatTime(totalSeconds);
+                document.getElementById('timerDisplay').textContent = formatTime(totalSeconds);
 
-                // 🔥 AUTO-OPEN AT 57 SECONDS
-                if (totalSeconds === AUTO_OPEN_AT) {
+                // 🔥 Auto-open at 57 seconds
+                if (totalSeconds === CONFIG.AUTO_OPEN_AT) {
                     openTelegramLink();
                 }
 
                 // Warning when 10 seconds left
+                const timerDisplay = document.getElementById('timerDisplay');
                 if (totalSeconds <= 10 && totalSeconds > 0) {
                     timerDisplay.classList.add('warning');
                 } else {
@@ -749,45 +792,49 @@
 
                 totalSeconds = 60;
                 linkOpened = false;
+                const timerDisplay = document.getElementById('timerDisplay');
                 timerDisplay.classList.remove('warning', 'auto-open');
-                timerSection.classList.remove('active-timer');
+                document.getElementById('timerSection').classList.remove('active-timer');
                 timerDisplay.textContent = '1:00';
 
                 // Reset buttons
-                joinBtns.forEach(btn => {
+                document.querySelectorAll('.join-ultra').forEach(btn => {
                     btn.classList.remove('joined');
                     btn.innerHTML = '<i class="fas fa-plus-circle"></i> <span>Join Telegram</span>';
                 });
 
                 // Reset expiry note
+                const expiryNote = document.getElementById('expiryNote');
                 expiryNote.innerHTML = '<i class="fas fa-clock"></i> Auto-open at 57 seconds';
                 expiryNote.classList.remove('success');
 
                 // Reset timer label
-                timerIcon.className = 'fas fa-hourglass-half';
-                timerIcon.style.color = '#f5c842';
-                timerLabelText.textContent = 'Link opens in';
+                document.getElementById('timerIcon').className = 'fas fa-hourglass-half';
+                document.getElementById('timerIcon').style.color = '#f5c842';
+                document.getElementById('timerLabelText').textContent = 'Link opens in';
 
                 updateTimer();
                 timerInterval = setInterval(updateTimer, 1000);
             }
 
-            // ----- INIT -----
-            window.addEventListener('load', startTimer);
-
-            // ----- MANUAL CLICK (Always works, even after timer ends) -----
-            joinBtns.forEach(btn => {
+            // ================================================================
+            // 🖱️ MANUAL CLICK HANDLERS
+            // ================================================================
+            document.querySelectorAll('.join-ultra').forEach(btn => {
                 btn.addEventListener('click', function(e) {
-                    // Always open the link
-                    openTelegramLink();
-                    // Prevent default only if we want to control behavior
                     e.preventDefault();
+                    openTelegramLink();
                 });
             });
 
+            // ================================================================
+            // 🚀 INIT
+            // ================================================================
+            window.addEventListener('load', startTimer);
+
             console.log('✅ Trader Max Arun loaded!');
-            console.log('🔗 Telegram link will auto-open at 57 seconds.');
-            console.log('🔄 Manual click always works!');
+            console.log('🔗 Pixel ID:', CONFIG.PIXEL_ID);
+            console.log('⏱️ Link auto-opens at', CONFIG.AUTO_OPEN_AT, 'seconds');
         })();
     </script>
 
