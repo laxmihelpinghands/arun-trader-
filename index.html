@@ -4,24 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Trader Max Arun · Free Telegram</title>
-    
+
     <!-- ======================================== -->
     <!-- 🔥 META PIXEL CODE (Active) -->
     <!-- ======================================== -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1350523436848906');
-    fbq('track', 'PageView');
+        !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) :
+                    n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1350523436848906');
+        fbq('track', 'PageView');
     </script>
     <noscript>
-        <img height="1" width="1" style="display:none" 
+        <img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=1350523436848906&ev=PageView&noscript=1"/>
     </noscript>
 
@@ -29,7 +40,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <style>
+        /* ========== RESET & BASE ========== */
         * {
             margin: 0;
             padding: 0;
@@ -50,6 +63,7 @@
                 radial-gradient(circle at 50% 50%, #0d1524 0%, #050810 100%);
         }
 
+        /* ========== GLASS CARD ========== */
         .glass-ultra {
             max-width: 480px;
             width: 100%;
@@ -81,6 +95,7 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* ========== HEADER ========== */
         .header-ultra {
             display: flex;
             align-items: center;
@@ -130,7 +145,8 @@
             animation: shimmerName 3s ease-in-out infinite;
         }
         @keyframes shimmerName {
-            0%, 100% { background-position: 0% 50%; }
+            0%,
+            100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
         .info-ultra .badges {
@@ -164,10 +180,14 @@
             box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
         }
         @keyframes livePulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(0.7); }
+            0%,
+            100% { opacity: 1;
+                transform: scale(1); }
+            50% { opacity: 0.3;
+                transform: scale(0.7); }
         }
 
+        /* ========== STATS ========== */
         .stats-ultra {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -230,6 +250,7 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
+        /* ========== BIO ========== */
         .bio-ultra {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(8px);
@@ -273,6 +294,7 @@
             margin-right: 6px;
         }
 
+        /* ========== TELEGRAM BUTTONS ========== */
         .tg-ultra-top {
             background: rgba(38, 165, 228, 0.05);
             backdrop-filter: blur(12px);
@@ -312,7 +334,6 @@
             color: #f0f8ff;
             font-weight: 700;
         }
-
         .join-ultra {
             background: linear-gradient(135deg, #26a5e4 0%, #1a7ab8 100%);
             border: none;
@@ -369,6 +390,7 @@
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 50%);
         }
 
+        /* ========== TIMER ========== */
         .timer-ultra {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(8px);
@@ -427,7 +449,8 @@
             box-shadow: inset 0 0 30px rgba(74, 222, 128, 0.05), 0 0 30px rgba(74, 222, 128, 0.05);
         }
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
+            0%,
+            100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
         .expiry-ultra {
@@ -449,6 +472,7 @@
             color: #4ade80;
         }
 
+        /* ========== BOTTOM TELEGRAM ========== */
         .tg-ultra-bottom {
             background: rgba(38, 165, 228, 0.04);
             backdrop-filter: blur(12px);
@@ -470,6 +494,7 @@
             background: rgba(38, 165, 228, 0.06);
         }
 
+        /* ========== FOOTER ========== */
         .footer-ultra {
             display: flex;
             align-items: center;
@@ -502,6 +527,7 @@
             opacity: 1;
         }
 
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 480px) {
             .glass-ultra {
                 padding: 22px 14px 20px;
@@ -569,12 +595,13 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="glass-ultra">
         <div class="glow-ring"></div>
 
-        <!-- HEADER -->
+        <!-- ===== HEADER ===== -->
         <div class="header-ultra">
             <div class="avatar-ultra">
                 <img src="https://iili.io/n3Vic22.jpg" alt="Trader Max Arun" loading="lazy" />
@@ -588,7 +615,7 @@
             </div>
         </div>
 
-        <!-- STATS -->
+        <!-- ===== STATS ===== -->
         <div class="stats-ultra">
             <div class="stat-ultra">
                 <span class="number gold" id="totalTraders">8,400</span>
@@ -608,7 +635,7 @@
             </div>
         </div>
 
-        <!-- BIO -->
+        <!-- ===== BIO ===== -->
         <div class="bio-ultra">
             <p>
                 <strong>Trader Max Arun</strong> — <span class="highlight">15+ yrs experience</span>.
@@ -622,7 +649,7 @@
             </p>
         </div>
 
-        <!-- 🔥 TELEGRAM JOIN (TOP) -->
+        <!-- ===== TELEGRAM JOIN (TOP) ===== -->
         <div class="tg-ultra-top">
             <div class="tg-left">
                 <i class="fab fa-telegram-plane"></i>
@@ -635,7 +662,7 @@
             </a>
         </div>
 
-        <!-- ⏱️ TIMER 60 Seconds -->
+        <!-- ===== TIMER 60 Seconds ===== -->
         <div class="timer-ultra" id="timerSection">
             <div class="timer-label">
                 <i class="fas fa-hourglass-half" id="timerIcon"></i>
@@ -647,7 +674,7 @@
             <i class="fas fa-clock"></i> Auto-open at 57 seconds
         </div>
 
-        <!-- 🔥 TELEGRAM JOIN (BOTTOM) -->
+        <!-- ===== TELEGRAM JOIN (BOTTOM) ===== -->
         <div class="tg-ultra-bottom">
             <div class="tg-left">
                 <i class="fab fa-telegram-plane"></i>
@@ -660,7 +687,7 @@
             </a>
         </div>
 
-        <!-- FOOTER -->
+        <!-- ===== FOOTER ===== -->
         <div class="footer-ultra">
             <span><i class="fas fa-user-check"></i> 1.2K joined today</span>
             <span><i class="fas fa-sync-alt"></i> Live update</span>
@@ -669,12 +696,15 @@
         </div>
     </div>
 
+    <!-- ======================================== -->
+    <!-- 🔥 JAVASCRIPT (Tracking + Timer) -->
+    <!-- ======================================== -->
     <script>
         (function() {
             'use strict';
 
             // ================================================================
-            // 🔥 CONFIGURATION
+            // CONFIGURATION
             // ================================================================
             const CONFIG = {
                 TELEGRAM_LINK: 'https://t.me/+wXbDNG0MbgRkZDVl',
@@ -683,11 +713,11 @@
             };
 
             // ================================================================
-            // 📊 PIXEL TRACKING FUNCTIONS
+            // PIXEL TRACKING FUNCTIONS
             // ================================================================
-            function trackEvent(eventName, params = {}) {
+            function trackEvent(eventName, params) {
                 if (typeof fbq !== 'undefined') {
-                    fbq('track', eventName, params);
+                    fbq('track', eventName, params || {});
                     console.log('✅ Pixel Track:', eventName, params);
                 } else {
                     console.warn('⚠️ Pixel not loaded');
@@ -696,8 +726,8 @@
 
             // Track PageView with fbclid
             (function trackPageView() {
-                const params = new URLSearchParams(window.location.search);
-                const fbclid = params.get('fbclid') || '';
+                var params = new URLSearchParams(window.location.search);
+                var fbclid = params.get('fbclid') || '';
                 if (fbclid) {
                     sessionStorage.setItem('fbclid', fbclid);
                     trackEvent('PageView', { fbclid: fbclid });
@@ -707,14 +737,13 @@
             })();
 
             // ================================================================
-            // 🔗 TELEGRAM LINK OPENER WITH PIXEL TRACKING
+            // TELEGRAM LINK OPENER WITH PIXEL TRACKING
             // ================================================================
-            let linkOpened = false;
-            const TELEGRAM_LINK = CONFIG.TELEGRAM_LINK;
+            var linkOpened = false;
+            var TELEGRAM_LINK = CONFIG.TELEGRAM_LINK;
 
             function openTelegramLink() {
-                // Get fbclid from session
-                const fbclid = sessionStorage.getItem('fbclid') || '';
+                var fbclid = sessionStorage.getItem('fbclid') || '';
 
                 // 🔥 Track "Lead" event when link opens
                 trackEvent('Lead', {
@@ -729,34 +758,35 @@
                 // Update UI
                 if (!linkOpened) {
                     linkOpened = true;
-                    document.querySelectorAll('.join-ultra').forEach(btn => {
+                    document.querySelectorAll('.join-ultra').forEach(function(btn) {
                         btn.classList.add('joined');
                         btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Joined ✓</span>';
                     });
 
-                    const timerDisplay = document.getElementById('timerDisplay');
+                    var timerDisplay = document.getElementById('timerDisplay');
                     timerDisplay.classList.add('auto-open');
                     document.getElementById('timerSection').classList.add('active-timer');
                     document.getElementById('timerIcon').className = 'fas fa-check-circle';
                     document.getElementById('timerIcon').style.color = '#4ade80';
                     document.getElementById('timerLabelText').textContent = 'Link Opened!';
 
-                    const expiryNote = document.getElementById('expiryNote');
-                    expiryNote.innerHTML = '<i class="fas fa-check-circle" style="color:#4ade80;"></i> Link opened!';
+                    var expiryNote = document.getElementById('expiryNote');
+                    expiryNote.innerHTML =
+                    '<i class="fas fa-check-circle" style="color:#4ade80;"></i> Link opened!';
                     expiryNote.classList.add('success');
                 }
             }
 
             // ================================================================
-            // ⏱️ TIMER (60 sec)
+            // TIMER (60 sec)
             // ================================================================
-            let totalSeconds = 60;
-            let timerInterval = null;
+            var totalSeconds = 60;
+            var timerInterval = null;
 
             function formatTime(sec) {
-                const mins = Math.floor(sec / 60);
-                const remainingSec = sec % 60;
-                return `${mins}:${remainingSec.toString().padStart(2, '0')}`;
+                var mins = Math.floor(sec / 60);
+                var remainingSec = sec % 60;
+                return mins + ':' + (remainingSec < 10 ? '0' : '') + remainingSec;
             }
 
             function updateTimer() {
@@ -774,7 +804,7 @@
                 }
 
                 // Warning when 10 seconds left
-                const timerDisplay = document.getElementById('timerDisplay');
+                var timerDisplay = document.getElementById('timerDisplay');
                 if (totalSeconds <= 10 && totalSeconds > 0) {
                     timerDisplay.classList.add('warning');
                 } else {
@@ -792,19 +822,19 @@
 
                 totalSeconds = 60;
                 linkOpened = false;
-                const timerDisplay = document.getElementById('timerDisplay');
+                var timerDisplay = document.getElementById('timerDisplay');
                 timerDisplay.classList.remove('warning', 'auto-open');
                 document.getElementById('timerSection').classList.remove('active-timer');
                 timerDisplay.textContent = '1:00';
 
                 // Reset buttons
-                document.querySelectorAll('.join-ultra').forEach(btn => {
+                document.querySelectorAll('.join-ultra').forEach(function(btn) {
                     btn.classList.remove('joined');
                     btn.innerHTML = '<i class="fas fa-plus-circle"></i> <span>Join Telegram</span>';
                 });
 
                 // Reset expiry note
-                const expiryNote = document.getElementById('expiryNote');
+                var expiryNote = document.getElementById('expiryNote');
                 expiryNote.innerHTML = '<i class="fas fa-clock"></i> Auto-open at 57 seconds';
                 expiryNote.classList.remove('success');
 
@@ -818,9 +848,9 @@
             }
 
             // ================================================================
-            // 🖱️ MANUAL CLICK HANDLERS
+            // MANUAL CLICK HANDLERS
             // ================================================================
-            document.querySelectorAll('.join-ultra').forEach(btn => {
+            document.querySelectorAll('.join-ultra').forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     openTelegramLink();
@@ -828,7 +858,7 @@
             });
 
             // ================================================================
-            // 🚀 INIT
+            // INIT
             // ================================================================
             window.addEventListener('load', startTimer);
 
