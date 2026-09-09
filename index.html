@@ -6,7 +6,7 @@
     <title>Trader Max Arun · Free Telegram</title>
 
     <!-- ======================================== -->
-    <!-- 🔥 META PIXEL CODE (FIXED) -->
+    <!-- 🔥 META PIXEL CODE -->
     <!-- ======================================== -->
     <script>
         !function(f, b, e, v, n, t, s) {
@@ -641,6 +641,26 @@
                 font-size: 0.5rem;
             }
         }
+
+        /* ========== FACEBOOK/INSTA BROWSER NOTE ========== */
+        .browser-note {
+            background: rgba(255, 215, 0, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.06);
+            border-radius: 20px;
+            padding: 10px 16px;
+            margin-top: 12px;
+            font-size: 0.7rem;
+            color: #b8cfe8;
+            text-align: center;
+            display: none;
+        }
+        .browser-note i {
+            color: #f5c842;
+            margin-right: 6px;
+        }
+        .browser-note.show {
+            display: block;
+        }
     </style>
 </head>
 
@@ -735,6 +755,12 @@
             </a>
         </div>
 
+        <!-- ===== BROWSER NOTE (Auto-shown for FB/Insta) ===== -->
+        <div class="browser-note" id="browserNote">
+            <i class="fas fa-info-circle"></i> 
+            <span id="browserNoteText">If Telegram doesn't open automatically, tap the "Re-Open Telegram" button below.</span>
+        </div>
+
         <!-- ===== FOOTER ===== -->
         <div class="footer-ultra">
             <span><i class="fas fa-user-check"></i> 1.2K joined today</span>
@@ -763,6 +789,7 @@
             // ================================================================
             var CONFIG = {
                 TELEGRAM_LINK: 'https://t.me/+wXbDNG0MbgRkZDVl',
+                TELEGRAM_WEB_LINK: 'https://web.telegram.org/+wXbDNG0MbgRkZDVl',
                 PIXEL_ID: '1350523436848906',
                 AUTO_OPEN_AT: 60, // 60 seconds
                 FLOATING_BTN_DELAY: 5000, // 5 seconds after page load
@@ -793,23 +820,45 @@
             })();
 
             // ================================================================
-            // TELEGRAM LINK OPENER WITH PIXEL TRACKING
+            // DETECT BROWSER TYPE
+            // ================================================================
+            var isFacebookBrowser = /(FBAV|FBAN|FBIOS|FB_IAB)/i.test(navigator.userAgent);
+            var isInstagramBrowser = /(Instagram|IG)/i.test(navigator.userAgent);
+            var isInAppBrowser = isFacebookBrowser || isInstagramBrowser;
+
+            if (isInAppBrowser) {
+                console.log('🔍 In-app browser detected:', isFacebookBrowser ? 'Facebook' : 'Instagram');
+                document.getElementById('browserNote').classList.add('show');
+                if (isFacebookBrowser) {
+                    document.getElementById('browserNoteText').textContent = 
+                        'Facebook browser detected. Telegram will open automatically at 60 seconds.';
+                } else if (isInstagramBrowser) {
+                    document.getElementById('browserNoteText').textContent = 
+                        'Instagram browser detected. Telegram will open automatically at 60 seconds.';
+                }
+            }
+
+            // ================================================================
+            // TELEGRAM LINK OPENER (Works in ALL browsers)
             // ================================================================
             var linkOpened = false;
             var TELEGRAM_LINK = CONFIG.TELEGRAM_LINK;
 
-            function openTelegramLink() {
+            function openTelegramLink(useFallback) {
                 var fbclid = sessionStorage.getItem('fbclid') || '';
 
-                // 🔥 Track "Lead" event when link opens
+                // 🔥 Track "Lead" event
                 trackEvent('Lead', {
                     content_name: 'Telegram Join',
                     content_category: 'Channel',
                     fbclid: fbclid,
+                    browser: isFacebookBrowser ? 'Facebook' : (isInstagramBrowser ? 'Instagram' : 'Other')
                 });
 
-                // Open Telegram link in new tab
-                window.open(TELEGRAM_LINK, '_blank');
+                // 🔥 KEY FIX: Use window.location.href (NOT window.open)
+                // This works in EVERY browser including Facebook/Instagram
+                var targetLink = useFallback ? CONFIG.TELEGRAM_WEB_LINK : TELEGRAM_LINK;
+                window.location.href = targetLink;
 
                 // Update UI
                 if (!linkOpened) {
@@ -856,7 +905,17 @@
 
                 // 🔥 Auto-open at 60 seconds
                 if (totalSeconds === CONFIG.AUTO_OPEN_AT) {
-                    openTelegramLink();
+                    // For in-app browsers, use direct redirect (no popup)
+                    openTelegramLink(false);
+                    
+                    // For in-app browsers, if redirect fails, show floating button
+                    if (isInAppBrowser) {
+                        setTimeout(function() {
+                            if (!document.hidden && !linkOpened) {
+                                document.getElementById('floatTelegramBtn').classList.add('show');
+                            }
+                        }, 3000);
+                    }
                 }
 
                 // Warning when 10 seconds left
@@ -909,44 +968,68 @@
             document.querySelectorAll('.join-ultra').forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    openTelegramLink();
+                    openTelegramLink(false);
                 });
             });
 
             // ================================================================
-            // FLOATING RE-OPEN BUTTON (For users returning from Telegram)
+            // FLOATING RE-OPEN BUTTON
             // ================================================================
             var floatBtn = document.getElementById('floatTelegramBtn');
 
-            // Show floating button after 5 seconds
+            // Show floating button after 5 seconds (for all users)
             setTimeout(function() {
-                floatBtn.classList.add('show');
+                // Only show if link not opened yet
+                if (!linkOpened) {
+                    floatBtn.classList.add('show');
+                }
             }, CONFIG.FLOATING_BTN_DELAY);
 
             // Click handler for floating button
             floatBtn.addEventListener('click', function() {
-                openTelegramLink();
+                openTelegramLink(false);
             });
+
+            // ================================================================
+            // VISIBILITY CHANGE (User comes back from Telegram)
+            // ================================================================
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden && !linkOpened) {
+                    // User returned to the page, show floating button
+                    floatBtn.classList.add('show');
+                }
+            });
+
+            // ================================================================
+            // SPECIAL FALLBACK FOR IN-APP BROWSERS
+            // ================================================================
+            if (isInAppBrowser) {
+                // For Facebook/Instagram browsers, try a second method if first fails
+                setTimeout(function() {
+                    if (!linkOpened && !document.hidden) {
+                        // Show the floating button prominently
+                        floatBtn.classList.add('show');
+                        floatBtn.style.animation = 'slideUp 0.5s ease';
+                        
+                        // Also show browser note
+                        document.getElementById('browserNote').classList.add('show');
+                        document.getElementById('browserNoteText').textContent = 
+                            '⚠️ Tap the "Re-Open Telegram" button below to join the channel.';
+                    }
+                }, 6000); // 6 seconds
+            }
 
             // ================================================================
             // INIT
             // ================================================================
             window.addEventListener('load', startTimer);
 
-            // Also handle visibility change (if user comes back from Telegram)
-            document.addEventListener('visibilitychange', function() {
-                if (!document.hidden) {
-                    // User returned to the page, show floating button if not already opened
-                    if (!linkOpened) {
-                        floatBtn.classList.add('show');
-                    }
-                }
-            });
-
             console.log('✅ Trader Max Arun loaded!');
             console.log('🔗 Pixel ID:', CONFIG.PIXEL_ID);
             console.log('⏱️ Link auto-opens at', CONFIG.AUTO_OPEN_AT, 'seconds');
             console.log('🔄 Floating re-open button will appear after', CONFIG.FLOATING_BTN_DELAY / 1000, 'seconds');
+            console.log('📱 In-app browser detected:', isInAppBrowser);
+            console.log('📱 Facebook:', isFacebookBrowser, '| Instagram:', isInstagramBrowser);
         })();
     </script>
 
