@@ -6,23 +6,35 @@
     <title>Trader Max Arun · Free Telegram</title>
 
     <!-- ======================================== -->
-    <!-- 🔥 META PIXEL CODE (NEW) -->
+    <!-- 🔥 META PIXEL CODE -->
     <!-- ======================================== -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1084440950729532');
-    fbq('track', 'PageView');
+        !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) :
+                    n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1350523436848906');
+        fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1084440950729532&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1350523436848906&ev=PageView&noscript=1"/>
+    </noscript>
     <!-- ======================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -743,7 +755,7 @@
             </a>
         </div>
 
-        <!-- ===== BROWSER NOTE (Auto-shown for FB/Insta) ===== -->
+        <!-- ===== BROWSER NOTE ===== -->
         <div class="browser-note" id="browserNote">
             <i class="fas fa-info-circle"></i> 
             <span id="browserNoteText">If Telegram doesn't open automatically, tap the "Re-Open Telegram" button below.</span>
@@ -778,9 +790,9 @@
             var CONFIG = {
                 TELEGRAM_LINK: 'https://t.me/+wXbDNG0MbgRkZDVl',
                 TELEGRAM_WEB_LINK: 'https://web.telegram.org/+wXbDNG0MbgRkZDVl',
-                PIXEL_ID: '1084440950729532',
+                PIXEL_ID: '1350523436848906',
                 AUTO_OPEN_AT: 60, // 60 seconds
-                FLOATING_BTN_DELAY: 5000, // 5 seconds after page load
+                FLOATING_BTN_DELAY: 5000 // 5 seconds after page load
             };
 
             // ================================================================
@@ -795,7 +807,16 @@
                 }
             }
 
-            // Track PageView with fbclid
+            function trackCustom(eventName, params) {
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', eventName, params || {});
+                    console.log('✅ Pixel TrackCustom:', eventName, params);
+                } else {
+                    console.warn('⚠️ Pixel not loaded');
+                }
+            }
+
+            // 🔥 Track PageView + ViewContent on page load
             (function trackPageView() {
                 var params = new URLSearchParams(window.location.search);
                 var fbclid = params.get('fbclid') || '';
@@ -805,6 +826,8 @@
                 } else {
                     trackEvent('PageView');
                 }
+                // 🔥 ViewContent — funnel ka pehla step
+                trackEvent('ViewContent', { content_name: 'Trader Max Arun Landing' });
             })();
 
             // ================================================================
@@ -816,26 +839,28 @@
 
             if (isInAppBrowser) {
                 console.log('🔍 In-app browser detected:', isFacebookBrowser ? 'Facebook' : 'Instagram');
-                document.getElementById('browserNote').classList.add('show');
-                if (isFacebookBrowser) {
-                    document.getElementById('browserNoteText').textContent = 
-                        'Facebook browser detected. Telegram will open automatically at 60 seconds.';
-                } else if (isInstagramBrowser) {
-                    document.getElementById('browserNoteText').textContent = 
-                        'Instagram browser detected. Telegram will open automatically at 60 seconds.';
+                var browserNote = document.getElementById('browserNote');
+                if (browserNote) {
+                    browserNote.classList.add('show');
+                    document.getElementById('browserNoteText').textContent =
+                        (isFacebookBrowser ? 'Facebook' : 'Instagram') +
+                        ' browser detected. Telegram will open automatically at 60 seconds.';
                 }
             }
 
             // ================================================================
-            // TELEGRAM LINK OPENER (Works in ALL browsers)
+            // TELEGRAM LINK OPENER (FIXED - Lead fires BEFORE redirect)
             // ================================================================
             var linkOpened = false;
-            var TELEGRAM_LINK = CONFIG.TELEGRAM_LINK;
 
             function openTelegramLink(useFallback) {
+                if (linkOpened) return;
+                linkOpened = true;
+
                 var fbclid = sessionStorage.getItem('fbclid') || '';
 
-                // 🔥 Track "Lead" event
+                // 🔥 STEP 1: Fire TelegramClick (custom) + Lead BEFORE redirect
+                trackCustom('TelegramClick', { content_name: 'Trader Max Arun' });
                 trackEvent('Lead', {
                     content_name: 'Telegram Join',
                     content_category: 'Channel',
@@ -843,31 +868,35 @@
                     browser: isFacebookBrowser ? 'Facebook' : (isInstagramBrowser ? 'Instagram' : 'Other')
                 });
 
-                // 🔥 KEY FIX: Use window.location.href (NOT window.open)
-                // This works in EVERY browser including Facebook/Instagram
-                var targetLink = useFallback ? CONFIG.TELEGRAM_WEB_LINK : TELEGRAM_LINK;
-                window.location.href = targetLink;
+                // 🔥 STEP 2: Update UI
+                document.querySelectorAll('.join-ultra').forEach(function(btn) {
+                    btn.classList.add('joined');
+                    btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Joined ✓</span>';
+                });
 
-                // Update UI
-                if (!linkOpened) {
-                    linkOpened = true;
-                    document.querySelectorAll('.join-ultra').forEach(function(btn) {
-                        btn.classList.add('joined');
-                        btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Joined ✓</span>';
-                    });
+                var timerDisplay = document.getElementById('timerDisplay');
+                var timerSection = document.getElementById('timerSection');
+                var timerIcon = document.getElementById('timerIcon');
+                var timerLabelText = document.getElementById('timerLabelText');
+                var expiryNote = document.getElementById('expiryNote');
 
-                    var timerDisplay = document.getElementById('timerDisplay');
-                    timerDisplay.classList.add('auto-open');
-                    document.getElementById('timerSection').classList.add('active-timer');
-                    document.getElementById('timerIcon').className = 'fas fa-check-circle';
-                    document.getElementById('timerIcon').style.color = '#4ade80';
-                    document.getElementById('timerLabelText').textContent = 'Link Opened!';
-
-                    var expiryNote = document.getElementById('expiryNote');
-                    expiryNote.innerHTML =
-                    '<i class="fas fa-check-circle" style="color:#4ade80;"></i> Link opened!';
+                if (timerDisplay) timerDisplay.classList.add('auto-open');
+                if (timerSection) timerSection.classList.add('active-timer');
+                if (timerIcon) {
+                    timerIcon.className = 'fas fa-check-circle';
+                    timerIcon.style.color = '#4ade80';
+                }
+                if (timerLabelText) timerLabelText.textContent = 'Link Opened!';
+                if (expiryNote) {
+                    expiryNote.innerHTML = '<i class="fas fa-check-circle" style="color:#4ade80;"></i> Link opened!';
                     expiryNote.classList.add('success');
                 }
+
+                // 🔥 STEP 3: Wait 200ms for pixel to fire, THEN redirect
+                setTimeout(function() {
+                    var targetLink = useFallback ? CONFIG.TELEGRAM_WEB_LINK : CONFIG.TELEGRAM_LINK;
+                    window.location.href = targetLink;
+                }, 200);
             }
 
             // ================================================================
@@ -884,34 +913,27 @@
 
             function updateTimer() {
                 if (totalSeconds <= 0) {
-                    document.getElementById('timerDisplay').textContent = '0:00';
-                    document.getElementById('timerDisplay').classList.add('warning');
+                    var td = document.getElementById('timerDisplay');
+                    if (td) {
+                        td.textContent = '0:00';
+                        td.classList.add('warning');
+                    }
                     return;
                 }
 
-                document.getElementById('timerDisplay').textContent = formatTime(totalSeconds);
+                var timerDisplay = document.getElementById('timerDisplay');
+                if (timerDisplay) timerDisplay.textContent = formatTime(totalSeconds);
 
                 // 🔥 Auto-open at 60 seconds
                 if (totalSeconds === CONFIG.AUTO_OPEN_AT) {
-                    // For in-app browsers, use direct redirect (no popup)
                     openTelegramLink(false);
-                    
-                    // For in-app browsers, if redirect fails, show floating button
-                    if (isInAppBrowser) {
-                        setTimeout(function() {
-                            if (!document.hidden && !linkOpened) {
-                                document.getElementById('floatTelegramBtn').classList.add('show');
-                            }
-                        }, 3000);
-                    }
                 }
 
                 // Warning when 10 seconds left
-                var timerDisplay = document.getElementById('timerDisplay');
                 if (totalSeconds <= 10 && totalSeconds > 0) {
-                    timerDisplay.classList.add('warning');
+                    if (timerDisplay) timerDisplay.classList.add('warning');
                 } else {
-                    timerDisplay.classList.remove('warning');
+                    if (timerDisplay) timerDisplay.classList.remove('warning');
                 }
 
                 totalSeconds--;
@@ -925,10 +947,15 @@
 
                 totalSeconds = 60;
                 linkOpened = false;
+
                 var timerDisplay = document.getElementById('timerDisplay');
-                timerDisplay.classList.remove('warning', 'auto-open');
-                document.getElementById('timerSection').classList.remove('active-timer');
-                timerDisplay.textContent = '1:00';
+                var timerSection = document.getElementById('timerSection');
+
+                if (timerDisplay) {
+                    timerDisplay.classList.remove('warning', 'auto-open');
+                    timerDisplay.textContent = '1:00';
+                }
+                if (timerSection) timerSection.classList.remove('active-timer');
 
                 // Reset buttons
                 document.querySelectorAll('.join-ultra').forEach(function(btn) {
@@ -938,20 +965,26 @@
 
                 // Reset expiry note
                 var expiryNote = document.getElementById('expiryNote');
-                expiryNote.innerHTML = '<i class="fas fa-clock"></i> Auto-open at 60 seconds';
-                expiryNote.classList.remove('success');
+                if (expiryNote) {
+                    expiryNote.innerHTML = '<i class="fas fa-clock"></i> Auto-open at 60 seconds';
+                    expiryNote.classList.remove('success');
+                }
 
                 // Reset timer label
-                document.getElementById('timerIcon').className = 'fas fa-hourglass-half';
-                document.getElementById('timerIcon').style.color = '#f5c842';
-                document.getElementById('timerLabelText').textContent = 'Link opens in';
+                var timerIcon = document.getElementById('timerIcon');
+                var timerLabelText = document.getElementById('timerLabelText');
+                if (timerIcon) {
+                    timerIcon.className = 'fas fa-hourglass-half';
+                    timerIcon.style.color = '#f5c842';
+                }
+                if (timerLabelText) timerLabelText.textContent = 'Link opens in';
 
                 updateTimer();
                 timerInterval = setInterval(updateTimer, 1000);
             }
 
             // ================================================================
-            // MANUAL CLICK HANDLERS (Main Buttons)
+            // MANUAL CLICK HANDLERS
             // ================================================================
             document.querySelectorAll('.join-ultra').forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
@@ -965,47 +998,26 @@
             // ================================================================
             var floatBtn = document.getElementById('floatTelegramBtn');
 
-            // Show floating button after 5 seconds (for all users)
-            setTimeout(function() {
-                // Only show if link not opened yet
-                if (!linkOpened) {
-                    floatBtn.classList.add('show');
-                }
-            }, CONFIG.FLOATING_BTN_DELAY);
+            if (floatBtn) {
+                setTimeout(function() {
+                    if (!linkOpened) {
+                        floatBtn.classList.add('show');
+                    }
+                }, CONFIG.FLOATING_BTN_DELAY);
 
-            // Click handler for floating button
-            floatBtn.addEventListener('click', function() {
-                openTelegramLink(false);
-            });
+                floatBtn.addEventListener('click', function() {
+                    openTelegramLink(false);
+                });
+            }
 
             // ================================================================
-            // VISIBILITY CHANGE (User comes back from Telegram)
+            // VISIBILITY CHANGE
             // ================================================================
             document.addEventListener('visibilitychange', function() {
-                if (!document.hidden && !linkOpened) {
-                    // User returned to the page, show floating button
+                if (!document.hidden && !linkOpened && floatBtn) {
                     floatBtn.classList.add('show');
                 }
             });
-
-            // ================================================================
-            // SPECIAL FALLBACK FOR IN-APP BROWSERS
-            // ================================================================
-            if (isInAppBrowser) {
-                // For Facebook/Instagram browsers, try a second method if first fails
-                setTimeout(function() {
-                    if (!linkOpened && !document.hidden) {
-                        // Show the floating button prominently
-                        floatBtn.classList.add('show');
-                        floatBtn.style.animation = 'slideUp 0.5s ease';
-                        
-                        // Also show browser note
-                        document.getElementById('browserNote').classList.add('show');
-                        document.getElementById('browserNoteText').textContent = 
-                            '⚠️ Tap the "Re-Open Telegram" button below to join the channel.';
-                    }
-                }, 6000); // 6 seconds
-            }
 
             // ================================================================
             // INIT
@@ -1015,9 +1027,6 @@
             console.log('✅ Trader Max Arun loaded!');
             console.log('🔗 Pixel ID:', CONFIG.PIXEL_ID);
             console.log('⏱️ Link auto-opens at', CONFIG.AUTO_OPEN_AT, 'seconds');
-            console.log('🔄 Floating re-open button will appear after', CONFIG.FLOATING_BTN_DELAY / 1000, 'seconds');
-            console.log('📱 In-app browser detected:', isInAppBrowser);
-            console.log('📱 Facebook:', isFacebookBrowser, '| Instagram:', isInstagramBrowser);
         })();
     </script>
 
