@@ -1,531 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Trader Max Arun · Free Telegram</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>TRADER MAX ARUN</title>
 
-    <!-- ======================================== -->
-    <!-- 🔥 META PIXEL CODE -->
-    <!-- ======================================== -->
+    <!-- ========================================== -->
+    <!-- META PIXEL & TRACKING CODE -->
+    <!-- ========================================== -->
     <script>
-        !function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) :
-                    n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1350523436848906');
-        fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1084440950729532');
+    fbq('track', 'PageView');
     </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1350523436848906&ev=PageView&noscript=1"/>
-    </noscript>
-    <!-- ======================================== -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1084440950729532&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- ========================================== -->
 
     <style>
-        /* ========== RESET & BASE ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
+
         body {
-            font-family: 'Inter', sans-serif;
+            background-color: #03080e;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            margin: 0;
-            background: #080c18;
-            background-image:
-                radial-gradient(circle at 10% 15%, rgba(255, 215, 0, 0.07) 0%, transparent 50%),
-                radial-gradient(circle at 90% 85%, rgba(38, 165, 228, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, #0d1524 0%, #050810 100%);
+            padding: 10px;
         }
 
-        /* ========== GLASS CARD ========== */
-        .glass-ultra {
-            max-width: 480px;
+        .card-container {
             width: 100%;
-            background: rgba(10, 20, 38, 0.55);
-            backdrop-filter: blur(28px) saturate(240%);
-            -webkit-backdrop-filter: blur(28px) saturate(240%);
-            border-radius: 60px;
-            padding: 32px 24px 28px;
-            border: 1px solid rgba(255, 215, 0, 0.05);
-            box-shadow: 0 60px 120px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 215, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            max-width: 400px;
+            background-color: #050c14;
+            border: 2px solid #00b4d8;
+            border-radius: 28px;
+            padding: 20px 18px 18px 18px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.35), inset 0 0 10px rgba(0, 180, 216, 0.15);
             position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .glass-ultra .glow-ring {
-            position: absolute;
-            inset: -2px;
-            border-radius: 60px;
-            padding: 2px;
-            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.07), transparent, rgba(38, 165, 228, 0.07), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            animation: rotateGlow 8s linear infinite;
-        }
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
-        /* ========== HEADER ========== */
-        .header-ultra {
+        .profile-sec {
             display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 22px;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 6px 16px 6px 6px;
-            border-radius: 120px;
-            border: 1px solid rgba(255, 215, 0, 0.04);
-            backdrop-filter: blur(4px);
-            position: relative;
-            z-index: 2;
-        }
-        .avatar-ultra {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            border: 2px solid rgba(255, 215, 0, 0.2);
-            box-shadow: 0 8px 28px rgba(245, 166, 35, 0.2);
-            overflow: hidden;
-            background: #1a1a2e;
-            display: flex;
-            align-items: center;
             justify-content: center;
+            margin-bottom: 12px;
         }
-        .avatar-ultra img {
+
+        .profile-box {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid #00d2ff;
+            overflow: hidden;
+            box-shadow: 0 0 18px #00d2ff;
+            background-color: #000;
+        }
+
+        .profile-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .info-ultra {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        .info-ultra .name {
-            font-weight: 900;
-            font-size: 1.4rem;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #f7e7b0 0%, #f5b82e 40%, #f7c948 70%, #f5b82e 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.2;
-            animation: shimmerName 3s ease-in-out infinite;
-        }
-        @keyframes shimmerName {
-            0%,
-            100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        .info-ultra .badges {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 10px;
-            margin-top: 2px;
-        }
-        .info-ultra .badges span {
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #b8cfe8;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 2px 14px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-        .info-ultra .badges i {
-            color: #f5c842;
-            margin-right: 6px;
-        }
-        .info-ultra .badges .live-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #4ade80;
-            border-radius: 50%;
-            animation: livePulse 1.5s infinite;
-            margin-right: 4px;
-            box-shadow: 0 0 12px rgba(74, 222, 128, 0.3);
-        }
-        @keyframes livePulse {
-            0%,
-            100% { opacity: 1;
-                transform: scale(1); }
-            50% { opacity: 0.3;
-                transform: scale(0.7); }
-        }
 
-        /* ========== STATS ========== */
-        .stats-ultra {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 22px;
-            position: relative;
-            z-index: 2;
-        }
-        .stat-ultra {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(8px);
-            border-radius: 24px;
-            padding: 16px 10px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .stat-ultra::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 24px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), transparent 60%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-        .stat-ultra .number {
-            font-size: 1.5rem;
+        .main-name {
+            font-size: 21px;
             font-weight: 900;
-            letter-spacing: -0.5px;
-            display: block;
-            line-height: 1.2;
-            position: relative;
-            z-index: 1;
-        }
-        .stat-ultra .number.gold { color: #f5c842; }
-        .stat-ultra .number.green { color: #4ade80; }
-        .stat-ultra .number.pink { color: #f472b6; }
-        .stat-ultra .number.blue { color: #60a5fa; }
-        .stat-ultra .label {
-            font-size: 0.55rem;
-            color: #8aaccc;
-            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            color: #ffffff;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-top: 4px;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-        .stat-ultra:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-3px);
-            border-color: rgba(255, 215, 0, 0.06);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* ========== BIO ========== */
-        .bio-ultra {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(8px);
-            border-radius: 30px;
-            padding: 18px 20px;
-            margin-bottom: 22px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.15);
-            position: relative;
-            z-index: 2;
-        }
-        .bio-ultra p {
-            font-size: 0.88rem;
-            line-height: 1.8;
-            color: #c6d9f0;
-        }
-        .bio-ultra strong {
-            color: #f5c842;
-            font-weight: 700;
-        }
-        .bio-ultra .highlight {
-            background: rgba(245, 200, 66, 0.06);
-            padding: 2px 12px;
-            border-radius: 40px;
-            border: 1px solid rgba(245, 200, 66, 0.04);
-            font-weight: 500;
-            color: #f5e7b0;
-        }
-        .bio-ultra .lang-tag {
-            display: inline-block;
-            margin-top: 8px;
-            background: rgba(0, 0, 0, 0.15);
-            padding: 4px 16px;
-            border-radius: 40px;
-            font-size: 0.65rem;
-            color: #b8d0ea;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-        }
-        .bio-ultra .lang-tag i {
-            color: #f5c842;
-            margin-right: 6px;
+        .feature-list {
+            list-style: none;
+            margin-bottom: 18px;
+            text-align: left;
+            padding: 0 5px;
         }
 
-        /* ========== TELEGRAM BUTTONS ========== */
-        .tg-ultra-top {
-            background: rgba(38, 165, 228, 0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 120px;
-            padding: 6px 6px 6px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid rgba(38, 165, 228, 0.06);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .tg-ultra-top:hover {
-            border-color: rgba(38, 165, 228, 0.15);
-            background: rgba(38, 165, 228, 0.07);
-        }
-        .tg-left {
+        .feature-list li {
+            font-size: 15px;
+            color: #d1d5db;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             gap: 12px;
-        }
-        .tg-left i {
-            font-size: 2.2rem;
-            color: #26a5e4;
-            filter: drop-shadow(0 4px 16px rgba(38, 165, 228, 0.15));
-        }
-        .tg-left .label {
             font-weight: 500;
-            font-size: 0.8rem;
-            color: #b0cce8;
-        }
-        .tg-left .label span {
-            color: #f0f8ff;
-            font-weight: 700;
-        }
-        .join-ultra {
-            background: linear-gradient(135deg, #26a5e4 0%, #1a7ab8 100%);
-            border: none;
-            color: #fff;
-            font-weight: 800;
-            font-size: 1rem;
-            padding: 14px 32px;
-            border-radius: 60px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 35px -4px rgba(38, 165, 228, 0.35);
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.3px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            text-decoration: none;
-            flex-shrink: 0;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .join-ultra::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 50%);
-            pointer-events: none;
-        }
-        .join-ultra i {
-            font-size: 1.1rem;
-            color: #fff;
-            position: relative;
-            z-index: 1;
-        }
-        .join-ultra span {
-            position: relative;
-            z-index: 1;
-        }
-        .join-ultra:hover {
-            transform: scale(1.04);
-            box-shadow: 0 14px 45px -4px rgba(38, 165, 228, 0.5);
-            background: linear-gradient(135deg, #3bb3f0 0%, #26a5e4 100%);
-        }
-        .join-ultra:active {
-            transform: scale(0.96);
-        }
-        .join-ultra.joined {
-            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            box-shadow: 0 10px 35px -4px rgba(74, 222, 128, 0.4);
-        }
-        .join-ultra.joined::before {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 50%);
         }
 
-        /* ========== TIMER ========== */
-        .timer-ultra {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(8px);
-            border-radius: 100px;
-            padding: 14px 22px 14px 26px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid rgba(255, 215, 0, 0.03);
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-            gap: 6px 0;
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
+        .feature-list li:last-child {
+            border-bottom: none;
         }
-        .timer-ultra.active-timer {
-            border-color: rgba(74, 222, 128, 0.15);
-            box-shadow: 0 0 40px rgba(74, 222, 128, 0.03);
-        }
-        .timer-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            color: #aac2de;
-            font-size: 0.8rem;
-        }
-        .timer-label i {
-            color: #f5c842;
-            font-size: 1rem;
-        }
-        .timer-clock-ultra {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 6px 24px;
-            border-radius: 80px;
-            font-family: 'Inter', monospace;
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-            color: #f5e7b0;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 215, 0, 0.04);
-            min-width: 90px;
+
+        .feature-list .icon {
+            font-size: 18px;
+            width: 22px;
+            display: inline-block;
             text-align: center;
-            transition: all 0.4s ease;
-        }
-        .timer-clock-ultra.warning {
-            color: #f5a623;
-            border-color: rgba(245, 166, 35, 0.12);
-            animation: pulse 1s infinite;
-        }
-        .timer-clock-ultra.auto-open {
-            color: #4ade80;
-            border-color: rgba(74, 222, 128, 0.2);
-            box-shadow: inset 0 0 30px rgba(74, 222, 128, 0.05), 0 0 30px rgba(74, 222, 128, 0.05);
-        }
-        @keyframes pulse {
-            0%,
-            100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .expiry-ultra {
-            font-size: 0.65rem;
-            text-align: right;
-            color: #6e8aa8;
-            margin-top: 4px;
-            padding-right: 6px;
-            letter-spacing: 0.3px;
-            transition: all 0.3s ease;
-        }
-        .expiry-ultra i {
-            margin-right: 6px;
-        }
-        .expiry-ultra.success {
-            color: #4ade80;
-        }
-        .expiry-ultra.success i {
-            color: #4ade80;
         }
 
-        /* ========== BOTTOM TELEGRAM ========== */
-        .tg-ultra-bottom {
-            background: rgba(38, 165, 228, 0.04);
-            backdrop-filter: blur(12px);
-            border-radius: 120px;
-            padding: 6px 6px 6px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid rgba(38, 165, 228, 0.05);
-            margin-top: 18px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .tg-ultra-bottom:hover {
-            border-color: rgba(38, 165, 228, 0.12);
-            background: rgba(38, 165, 228, 0.06);
-        }
-
-        /* ========== FOOTER ========== */
-        .footer-ultra {
+        .join-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 22px;
-            margin-top: 24px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.015);
-            font-size: 0.65rem;
-            color: #5b7a99;
-            position: relative;
-            z-index: 2;
-            flex-wrap: wrap;
+            width: 100%;
+            background: linear-gradient(90deg, #00b4d8 0%, #805ad5 100%);
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 50px;
+            box-shadow: 0 0 16px rgba(128, 90, 213, 0.4);
+            margin-bottom: 15px;
+            letter-spacing: 0.8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
         }
-        .footer-ultra span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+
+        .join-btn:active {
+            transform: scale(0.98);
         }
-        .footer-ultra i {
-            color: #f5c842;
-            opacity: 0.7;
+
+        .quote-text {
+            font-size: 14px;
+            color: #e5e7eb;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            font-weight: 500;
         }
-        .footer-ultra .live-badge {
-            color: #4ade80;
-            font-weight: 600;
+
+        .ad-badge {
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 9px;
+            font-size: 12.5px;
+            color: #9ca3af;
+            margin-bottom: 12px;
+            background-color: rgba(255, 255, 255, 0.01);
+            font-weight: 500;
         }
-        .footer-ultra .live-badge i {
-            color: #4ade80;
-            opacity: 1;
+
+        .ad-badge a {
+            color: #00b4d8;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .ad-badge a:hover {
+            text-decoration: underline;
+        }
+
+        .disclaimer-box {
+            font-size: 10.5px;
+            color: #6b7280;
+            line-height: 1.35;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .footer-links {
+            font-size: 11px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: underline;
         }
 
         /* ========== FLOATING RE-OPEN BUTTON ========== */
@@ -533,14 +192,14 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #26a5e4, #1a7ab8);
+            background: linear-gradient(135deg, #00b4d8, #805ad5);
             color: white;
             border: none;
             border-radius: 60px;
             padding: 16px 28px;
             font-size: 1rem;
             font-weight: 700;
-            box-shadow: 0 10px 40px rgba(38, 165, 228, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 180, 216, 0.5);
             cursor: pointer;
             z-index: 999;
             display: none;
@@ -552,258 +211,87 @@
         }
         .float-tg-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 14px 50px rgba(38, 165, 228, 0.6);
-        }
-        .float-tg-btn i {
-            font-size: 1.4rem;
         }
         .float-tg-btn.show {
             display: flex;
-            animation: slideUp 0.5s ease;
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 480px) {
-            .glass-ultra {
-                padding: 22px 14px 20px;
-                border-radius: 40px;
-            }
-            .avatar-ultra {
-                width: 50px;
-                height: 50px;
-            }
-            .info-ultra .name {
-                font-size: 1.1rem;
-            }
-            .stats-ultra {
-                gap: 8px;
-            }
-            .stat-ultra .number {
-                font-size: 1.15rem;
-            }
-            .stat-ultra {
-                padding: 12px 8px;
-                border-radius: 18px;
-            }
-            .join-ultra {
-                padding: 12px 22px;
-                font-size: 0.9rem;
-                width: 100%;
-                justify-content: center;
-            }
-            .tg-ultra-top,
-            .tg-ultra-bottom {
-                padding: 10px 12px;
-                border-radius: 40px;
-            }
-            .tg-left .label {
-                font-size: 0.7rem;
-            }
-            .timer-clock-ultra {
-                font-size: 1.5rem;
-                min-width: 75px;
-                padding: 4px 14px;
-            }
-            .timer-ultra {
-                padding: 12px 16px 12px 20px;
-            }
-            .footer-ultra {
-                gap: 12px;
-            }
-            .bio-ultra p {
-                font-size: 0.82rem;
-            }
-            .bio-ultra {
-                padding: 14px 14px;
-            }
-            .float-tg-btn {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 0.85rem;
-            }
-            .float-tg-btn i {
-                font-size: 1.1rem;
-            }
-        }
-        @media (max-width: 380px) {
-            .stats-ultra {
-                gap: 6px;
-            }
-            .stat-ultra .number {
-                font-size: 1rem;
-            }
-            .stat-ultra .label {
-                font-size: 0.5rem;
-            }
-        }
-
-        /* ========== FACEBOOK/INSTA BROWSER NOTE ========== */
-        .browser-note {
-            background: rgba(255, 215, 0, 0.04);
-            border: 1px solid rgba(255, 215, 0, 0.06);
-            border-radius: 20px;
-            padding: 10px 16px;
-            margin-top: 12px;
-            font-size: 0.7rem;
-            color: #b8cfe8;
-            text-align: center;
-            display: none;
-        }
-        .browser-note i {
-            color: #f5c842;
-            margin-right: 6px;
-        }
-        .browser-note.show {
-            display: block;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="glass-ultra">
-        <div class="glow-ring"></div>
-
-        <!-- ===== HEADER ===== -->
-        <div class="header-ultra">
-            <div class="avatar-ultra">
-                <img src="https://iili.io/n3Vic22.jpg" alt="Trader Max Arun" loading="lazy" />
-            </div>
-            <div class="info-ultra">
-                <div class="name">Trader Max Arun</div>
-                <div class="badges">
-                    <span><i class="fas fa-check-circle"></i> 30k+ trader</span>
-                    <span><span class="live-dot"></span> Live</span>
-                </div>
+    <div class="card-container">
+        
+        <!-- Profile Image -->
+        <div class="profile-sec">
+            <div class="profile-box">
+                <img src="https://iili.io/n3Vic22.jpg" alt="Profile Image">
             </div>
         </div>
 
-        <!-- ===== STATS ===== -->
-        <div class="stats-ultra">
-            <div class="stat-ultra">
-                <span class="number gold" id="totalTraders">8,400</span>
-                <span class="label">Total Traders</span>
-            </div>
-            <div class="stat-ultra">
-                <span class="number green" id="accuracy">98%</span>
-                <span class="label">Accuracy</span>
-            </div>
-            <div class="stat-ultra">
-                <span class="number pink" id="highTrades">390-500</span>
-                <span class="label">High Trades</span>
-            </div>
-            <div class="stat-ultra">
-                <span class="number blue" id="dailyJoining">12K</span>
-                <span class="label">Daily Joining</span>
-            </div>
+        <!-- Name Title -->
+        <div class="main-name">TRADER MAX ARUN ™</div>
+
+        <!-- Point List -->
+        <ul class="feature-list">
+            <li><span class="icon">🌐</span> Learning & Educational Sessions</li>
+            <li><span class="icon">📊</span> Market Concepts & Awareness</li>
+            <li><span class="icon">💎</span> Chart Reading Concepts</li>
+            <li><span class="icon">💻</span> Educational Case Discussions</li>
+        </ul>
+
+        <!-- Telegram Button -->
+        <button id="telegramLink" class="join-btn" onclick="openTelegramLink(event)">
+            JOIN TELEGRAM NOW
+        </button>
+
+        <!-- Hindi Quote -->
+        <div class="quote-text">
+            नियत अच्छी और मेहनत सच्ची हो, तो कामयाबी जरूर मिलती है।
         </div>
 
-        <!-- ===== BIO ===== -->
-        <div class="bio-ultra">
-            <p>
-                <strong>Trader Max Arun</strong> — <span class="highlight">15+ yrs experience</span>.
-                <br />
-                <i class="fas fa-arrow-right" style="color:#f5c842; font-size:0.7rem; margin-right:4px;"></i>
-                <strong>5-7 High Probability Trades</strong> · Exact Entry, SL & Target.
-                <br />
-                <span class="lang-tag">
-                    <i class="fas fa-globe-americas"></i> English · Hindi · Malayalam
-                </span>
-            </p>
+        <!-- Agency Tag -->
+        <div class="ad-badge">
+            Promoted by <a href="https://t.me/Meta_setup_prince" target="_blank">META MARKETING AGENCY BY PRINCE</a>
         </div>
 
-        <!-- ===== TELEGRAM JOIN (TOP) ===== -->
-        <div class="tg-ultra-top">
-            <div class="tg-left">
-                <i class="fab fa-telegram-plane"></i>
-                <div class="label">
-                    <span>Free Trading Signals</span>
-                </div>
-            </div>
-            <a href="#" class="join-ultra" id="joinBtnTop">
-                <i class="fas fa-plus-circle"></i> <span>Join Telegram</span>
-            </a>
+        <!-- Compliance Disclaimer -->
+        <div class="disclaimer-box">
+            <strong>Disclaimer:</strong> Content shared is purely for educational purposes. We do not provide buy/sell tips or guaranteed returns. Investments in the securities market are subject to market risks. Read all related documents carefully before investing.
         </div>
 
-        <!-- ===== TIMER 60 Seconds ===== -->
-        <div class="timer-ultra" id="timerSection">
-            <div class="timer-label">
-                <i class="fas fa-hourglass-half" id="timerIcon"></i>
-                <span id="timerLabelText">Link opens in</span>
-            </div>
-            <div class="timer-clock-ultra" id="timerDisplay">1:00</div>
-        </div>
-        <div class="expiry-ultra" id="expiryNote">
-            <i class="fas fa-clock"></i> Auto-open at 60 seconds
+        <!-- Footer Policy Links -->
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Disclaimer</a><br>
+            This site is not a part of the Facebook™ website or Meta Platforms, Inc.
         </div>
 
-        <!-- ===== TELEGRAM JOIN (BOTTOM) ===== -->
-        <div class="tg-ultra-bottom">
-            <div class="tg-left">
-                <i class="fab fa-telegram-plane"></i>
-                <div class="label">
-                    <span>Join Our Community</span>
-                </div>
-            </div>
-            <a href="#" class="join-ultra" id="joinBtnBottom">
-                <i class="fas fa-plus-circle"></i> <span>Join Telegram</span>
-            </a>
-        </div>
-
-        <!-- ===== BROWSER NOTE ===== -->
-        <div class="browser-note" id="browserNote">
-            <i class="fas fa-info-circle"></i> 
-            <span id="browserNoteText">If Telegram doesn't open automatically, tap the "Re-Open Telegram" button below.</span>
-        </div>
-
-        <!-- ===== FOOTER ===== -->
-        <div class="footer-ultra">
-            <span><i class="fas fa-user-check"></i> 1.2K joined today</span>
-            <span><i class="fas fa-sync-alt"></i> Live update</span>
-            <span><i class="fas fa-lock"></i> Private group</span>
-            <span class="live-badge"><i class="fas fa-circle"></i> 38.8K members</span>
-        </div>
     </div>
 
-    <!-- ======================================== -->
-    <!-- 🔥 FLOATING RE-OPEN BUTTON -->
-    <!-- ======================================== -->
+    <!-- Floating Re-Open Button -->
     <button class="float-tg-btn" id="floatTelegramBtn">
         <i class="fab fa-telegram-plane"></i> Re-Open Telegram
     </button>
 
-    <!-- ======================================== -->
-    <!-- 🔥 JAVASCRIPT (Tracking + Timer + Re-Open) -->
-    <!-- ======================================== -->
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT - TRACKING + AUTO-OPEN -->
+    <!-- ========================================== -->
     <script>
         (function() {
             'use strict';
 
-            // ================================================================
-            // CONFIGURATION
-            // ================================================================
             var CONFIG = {
                 TELEGRAM_LINK: 'https://t.me/+wXbDNG0MbgRkZDVl',
-                TELEGRAM_WEB_LINK: 'https://web.telegram.org/+wXbDNG0MbgRkZDVl',
-                PIXEL_ID: '1350523436848906',
-                AUTO_OPEN_AT: 60, // 60 seconds
-                FLOATING_BTN_DELAY: 5000 // 5 seconds after page load
+                PIXEL_ID: '1084440950729532',
+                AUTO_OPEN_DELAY: 5000, // 5 seconds
+                FLOATING_BTN_DELAY: 6000
             };
 
-            // ================================================================
-            // PIXEL TRACKING FUNCTIONS
-            // ================================================================
+            var linkOpened = false;
+
             function trackEvent(eventName, params) {
                 if (typeof fbq !== 'undefined') {
                     fbq('track', eventName, params || {});
                     console.log('✅ Pixel Track:', eventName, params);
-                } else {
-                    console.warn('⚠️ Pixel not loaded');
                 }
             }
 
@@ -811,12 +299,10 @@
                 if (typeof fbq !== 'undefined') {
                     fbq('trackCustom', eventName, params || {});
                     console.log('✅ Pixel TrackCustom:', eventName, params);
-                } else {
-                    console.warn('⚠️ Pixel not loaded');
                 }
             }
 
-            // 🔥 Track PageView + ViewContent on page load
+            // PageView + ViewContent on load
             (function trackPageView() {
                 var params = new URLSearchParams(window.location.search);
                 var fbclid = params.get('fbclid') || '';
@@ -826,207 +312,67 @@
                 } else {
                     trackEvent('PageView');
                 }
-                // 🔥 ViewContent — funnel ka pehla step
-                trackEvent('ViewContent', { content_name: 'Trader Max Arun Landing' });
+                trackEvent('ViewContent', { content_name: 'TRADER MAX ARUN' });
             })();
 
-            // ================================================================
-            // DETECT BROWSER TYPE
-            // ================================================================
+            // Browser detection
             var isFacebookBrowser = /(FBAV|FBAN|FBIOS|FB_IAB)/i.test(navigator.userAgent);
             var isInstagramBrowser = /(Instagram|IG)/i.test(navigator.userAgent);
-            var isInAppBrowser = isFacebookBrowser || isInstagramBrowser;
 
-            if (isInAppBrowser) {
-                console.log('🔍 In-app browser detected:', isFacebookBrowser ? 'Facebook' : 'Instagram');
-                var browserNote = document.getElementById('browserNote');
-                if (browserNote) {
-                    browserNote.classList.add('show');
-                    document.getElementById('browserNoteText').textContent =
-                        (isFacebookBrowser ? 'Facebook' : 'Instagram') +
-                        ' browser detected. Telegram will open automatically at 60 seconds.';
-                }
-            }
-
-            // ================================================================
-            // TELEGRAM LINK OPENER (FIXED - Lead fires BEFORE redirect)
-            // ================================================================
-            var linkOpened = false;
-
-            function openTelegramLink(useFallback) {
+            // Telegram link opener (fires Lead BEFORE redirect)
+            function openTelegramLink(e) {
+                if (e) e.preventDefault();
                 if (linkOpened) return;
                 linkOpened = true;
 
                 var fbclid = sessionStorage.getItem('fbclid') || '';
 
-                // 🔥 STEP 1: Fire TelegramClick (custom) + Lead BEFORE redirect
-                trackCustom('TelegramClick', { content_name: 'Trader Max Arun' });
+                trackCustom('TelegramClick', { content_name: 'TRADER MAX ARUN' });
                 trackEvent('Lead', {
                     content_name: 'Telegram Join',
                     content_category: 'Channel',
                     fbclid: fbclid,
                     browser: isFacebookBrowser ? 'Facebook' : (isInstagramBrowser ? 'Instagram' : 'Other')
                 });
+                trackEvent('Subscribe');
 
-                // 🔥 STEP 2: Update UI
-                document.querySelectorAll('.join-ultra').forEach(function(btn) {
-                    btn.classList.add('joined');
-                    btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Joined ✓</span>';
-                });
-
-                var timerDisplay = document.getElementById('timerDisplay');
-                var timerSection = document.getElementById('timerSection');
-                var timerIcon = document.getElementById('timerIcon');
-                var timerLabelText = document.getElementById('timerLabelText');
-                var expiryNote = document.getElementById('expiryNote');
-
-                if (timerDisplay) timerDisplay.classList.add('auto-open');
-                if (timerSection) timerSection.classList.add('active-timer');
-                if (timerIcon) {
-                    timerIcon.className = 'fas fa-check-circle';
-                    timerIcon.style.color = '#4ade80';
-                }
-                if (timerLabelText) timerLabelText.textContent = 'Link Opened!';
-                if (expiryNote) {
-                    expiryNote.innerHTML = '<i class="fas fa-check-circle" style="color:#4ade80;"></i> Link opened!';
-                    expiryNote.classList.add('success');
-                }
-
-                // 🔥 STEP 3: Wait 200ms for pixel to fire, THEN redirect
+                // Wait 200ms for pixel to fire, THEN redirect
                 setTimeout(function() {
-                    var targetLink = useFallback ? CONFIG.TELEGRAM_WEB_LINK : CONFIG.TELEGRAM_LINK;
-                    window.location.href = targetLink;
+                    window.location.href = CONFIG.TELEGRAM_LINK;
                 }, 200);
             }
 
-            // ================================================================
-            // TIMER (60 sec)
-            // ================================================================
-            var totalSeconds = 60;
-            var timerInterval = null;
-
-            function formatTime(sec) {
-                var mins = Math.floor(sec / 60);
-                var remainingSec = sec % 60;
-                return mins + ':' + (remainingSec < 10 ? '0' : '') + remainingSec;
-            }
-
-            function updateTimer() {
-                if (totalSeconds <= 0) {
-                    var td = document.getElementById('timerDisplay');
-                    if (td) {
-                        td.textContent = '0:00';
-                        td.classList.add('warning');
-                    }
-                    return;
+            // 🔥 Auto-open at 5 seconds
+            setTimeout(function() {
+                if (!linkOpened) {
+                    openTelegramLink();
                 }
+            }, CONFIG.AUTO_OPEN_DELAY);
 
-                var timerDisplay = document.getElementById('timerDisplay');
-                if (timerDisplay) timerDisplay.textContent = formatTime(totalSeconds);
-
-                // 🔥 Auto-open at 60 seconds
-                if (totalSeconds === CONFIG.AUTO_OPEN_AT) {
-                    openTelegramLink(false);
-                }
-
-                // Warning when 10 seconds left
-                if (totalSeconds <= 10 && totalSeconds > 0) {
-                    if (timerDisplay) timerDisplay.classList.add('warning');
-                } else {
-                    if (timerDisplay) timerDisplay.classList.remove('warning');
-                }
-
-                totalSeconds--;
-            }
-
-            function startTimer() {
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                    timerInterval = null;
-                }
-
-                totalSeconds = 60;
-                linkOpened = false;
-
-                var timerDisplay = document.getElementById('timerDisplay');
-                var timerSection = document.getElementById('timerSection');
-
-                if (timerDisplay) {
-                    timerDisplay.classList.remove('warning', 'auto-open');
-                    timerDisplay.textContent = '1:00';
-                }
-                if (timerSection) timerSection.classList.remove('active-timer');
-
-                // Reset buttons
-                document.querySelectorAll('.join-ultra').forEach(function(btn) {
-                    btn.classList.remove('joined');
-                    btn.innerHTML = '<i class="fas fa-plus-circle"></i> <span>Join Telegram</span>';
-                });
-
-                // Reset expiry note
-                var expiryNote = document.getElementById('expiryNote');
-                if (expiryNote) {
-                    expiryNote.innerHTML = '<i class="fas fa-clock"></i> Auto-open at 60 seconds';
-                    expiryNote.classList.remove('success');
-                }
-
-                // Reset timer label
-                var timerIcon = document.getElementById('timerIcon');
-                var timerLabelText = document.getElementById('timerLabelText');
-                if (timerIcon) {
-                    timerIcon.className = 'fas fa-hourglass-half';
-                    timerIcon.style.color = '#f5c842';
-                }
-                if (timerLabelText) timerLabelText.textContent = 'Link opens in';
-
-                updateTimer();
-                timerInterval = setInterval(updateTimer, 1000);
-            }
-
-            // ================================================================
-            // MANUAL CLICK HANDLERS
-            // ================================================================
-            document.querySelectorAll('.join-ultra').forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openTelegramLink(false);
-                });
-            });
-
-            // ================================================================
-            // FLOATING RE-OPEN BUTTON
-            // ================================================================
+            // Floating button
             var floatBtn = document.getElementById('floatTelegramBtn');
-
             if (floatBtn) {
                 setTimeout(function() {
-                    if (!linkOpened) {
-                        floatBtn.classList.add('show');
-                    }
+                    if (!linkOpened) floatBtn.classList.add('show');
                 }, CONFIG.FLOATING_BTN_DELAY);
 
                 floatBtn.addEventListener('click', function() {
-                    openTelegramLink(false);
+                    openTelegramLink();
                 });
             }
 
-            // ================================================================
-            // VISIBILITY CHANGE
-            // ================================================================
+            // Manual button click
+            document.getElementById('telegramLink').addEventListener('click', openTelegramLink);
+
             document.addEventListener('visibilitychange', function() {
                 if (!document.hidden && !linkOpened && floatBtn) {
                     floatBtn.classList.add('show');
                 }
             });
 
-            // ================================================================
-            // INIT
-            // ================================================================
-            window.addEventListener('load', startTimer);
-
-            console.log('✅ Trader Max Arun loaded!');
+            console.log('✅ TRADER MAX ARUN loaded!');
             console.log('🔗 Pixel ID:', CONFIG.PIXEL_ID);
-            console.log('⏱️ Link auto-opens at', CONFIG.AUTO_OPEN_AT, 'seconds');
+            console.log('⏱️ Auto-open at', CONFIG.AUTO_OPEN_DELAY / 1000, 'seconds');
         })();
     </script>
 
